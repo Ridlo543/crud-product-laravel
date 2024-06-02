@@ -16,16 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => Hash::make('password123'),
-        ]);
+        // Buat 10 user
+        User::factory()->count(10)->create();
 
         // Create an admin user
         User::factory()->create([
             'name' => 'Admin Account',
             'email' => 'admin@example.com',
+            'email_verified_at' => now(),
             'password' => Hash::make('adminpassword'),
             'usertype' => 'admin'
         ]);
